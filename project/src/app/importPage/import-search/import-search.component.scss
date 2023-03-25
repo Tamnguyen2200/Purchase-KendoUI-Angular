@@ -1,0 +1,73 @@
+.topspace{
+    padding-top: 1.5rem;
+}
+.decription{
+    display: flex;
+    width: 22rem;
+    justify-content: space-between;
+    .padding8px{
+        font-weight: 700;
+        color: #5A6276;
+    }
+    .fonts{
+        font-weight: 700;
+        color: #959DB3;
+    }
+}
+.searchbar{
+    margin-left: 2.2rem;
+    margin-top: 1rem;
+    width: 35rem;
+    display: flex;
+    justify-content: space-between;
+    a{
+        color: #008000;
+        text-decoration: underline;
+        margin-top: 0.3rem;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .inputvalue{
+        width: 23.4rem;
+        height: 2rem;
+        border-radius: 5px;
+        border: none;
+        background-color: #ffffff;
+        padding-left: 2rem;
+        position: relative;
+        margin-left: 1.3rem;
+        &:focus-visible{
+            outline: none;
+            border: 2px solid #008000 !important;
+        }
+        &:focus{
+            border: 2px solid #008000 !important;
+        }
+    }
+    .position{
+        position: absolute;
+        margin-left: 8rem;
+        margin-top: 0.4rem;
+    }
+    kendo-button{
+        background-color: #008000;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        span.k-button-text{
+            display: flex;
+            align-items: center;
+            .ingpositionbtn{
+                padding-top: 0.2rem;
+                
+            }
+            span{
+                padding-top: -0.2rem;
+                padding-left: 0.5rem;
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,13 @@
+<div class="topspace">
+    <div class="decription">
+        <img src="../../../assets/svgIcon/fillter.svg" alt="">
+        <p class="padding8px">LỌC DỮ LIỆU</p>
+        <P class="fonts">Tìm kiếm đối tượng import</P>
+    </div>
+    <div class="searchbar">
+        <a (click)="Reset()">Reset bộ lọc</a> 
+        <input class="inputvalue" type="text" autocomplete="off" placeholder="Tìm theo tên đối tượng import, mô tả " [(ngModel)]="filterName" name="filterName" (change)="ShareValue()">
+        <img class="position" src="../../../assets/svgIcon/Search_icon.svg" alt="">
+        <kendo-button (click)="ShareValue()" imageUrl="../../../assets/svgIcon/Search_icon_white.svg"><span>Tìm</span></kendo-button>
+    </div>
+</div>

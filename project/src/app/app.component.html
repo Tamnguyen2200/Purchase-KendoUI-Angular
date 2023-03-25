@@ -1,0 +1,22 @@
+<kendo-drawer-container>
+  <kendo-drawer 
+  #drawer 
+  [items]="items" 
+  mode="push" 
+  [mini]="true" 
+  [width]="270"
+  [(expanded)]="expanded"
+  [autoCollapse]="false"
+  (select)="onSelect($event)"
+  >
+  <ng-template kendoDrawerItemTemplate let-item>
+    <a routerLink="{{item.path}}">
+      <span class="k-icon item-icon"><img src="../assets/svgIcon/Path21.svg" alt=""></span>
+      <span class="customText">{{item.text}}</span>
+    </a>
+  </ng-template>
+  </kendo-drawer>
+  <kendo-drawer-content>
+    <router-outlet></router-outlet>
+  </kendo-drawer-content>
+</kendo-drawer-container>

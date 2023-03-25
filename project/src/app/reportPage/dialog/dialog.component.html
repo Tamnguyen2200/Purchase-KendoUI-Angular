@@ -1,0 +1,21 @@
+<div class="dialog overlay" id="my-dialog">
+    <div class="dialog-body">
+        <div class="headder">
+            ĐIỀU KIỆN XUẤT BÁO CÁO
+        </div>
+        <div class="contentdialog">
+            <div class="conten">
+                <p>Năm</p>
+                <p class="pading">Tháng</p>
+            </div>
+            <div class="inputnum">
+                <input type="number" name="Year" #Year id="Year" value="2023">
+                <input type="number" name="Month" #Month id="Month" value="3">
+            </div>
+            <div class="btn">
+                <button (click)="importRepot(Year.value,Month.value)" class="custonbtm">XUẤT BÁO CÁO</button>
+                <button class="custonbtm ma" (click)="dialogService.closeDialog(true)">ĐÓNG</button>
+            </div>
+        </div>
+    </div>
+</div>
