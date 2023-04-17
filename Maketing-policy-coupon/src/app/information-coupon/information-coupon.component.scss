@@ -1,0 +1,171 @@
+@import url(https://fonts.googleapis.com/css?family=Mulish);
+.hearder-title{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    .title{
+        display: flex;
+    }
+    p{
+        margin-left: 15px;
+        font-weight: 700;
+    }
+    .optionlag{
+        margin-right: 10px;
+        display: flex;
+        button{
+            margin: 0 2px;
+            font-family: 'Mulish';
+            font-weight: 400;
+            color: #BBC0BB;
+            background-color: #EDEFF3;
+            border: none;
+        }
+        .clicked1,.clicked2,.clicked3{
+            color: #000000;
+        }
+        .line{
+            margin-top: 4px;
+            width: 1px;
+            height: 18px;
+            background-color: #BBC0BB;
+        }
+    }
+    
+}
+.gree{
+    color: #1A6634;
+    font-weight: 700;
+}
+.wrapper{
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+    .box{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        align-items: flex-start;
+        label{
+        color: #959DB3;
+        }
+        .form1{
+            height: 33px;
+            border: 2px solid #DBDEE7;
+            border-radius: 2px;
+            &:focus{
+                outline: none;
+            }
+        }
+        .with1{
+            width: 165px;
+        }
+        .with2{
+            width: 100px;
+        }
+        .with3{
+            width: 850px;
+        }
+        .with4{
+            width: 300px;
+        }
+        .csstextarea{
+            height: 150px;
+        }
+    }
+}
+.cus{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    .pading{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    }   
+    .green{
+        color: #1A6634 !important;
+    }
+}
+
+.cutom-datepicker{
+    display: flex;
+    kendo-datepicker{
+        background-color: #F5F6F8;
+        margin: 10px;
+    }
+}
+::ng-deep{
+    .k-other-month{
+        visibility: hidden; 
+    }
+    .k-input{
+        order: 2;
+        width: 135px;
+    }
+    .k-calendar-thead{
+        display: none;
+    }
+    .k-calendar-tbody{
+        height: 160px;
+    }
+    .k-calendar > .k-calendar{
+        height: 232px;
+    }
+    .k-calendar-nav-today {
+        display: none;
+    }
+    // .k-calendar .k-calendar-td.k-selected:hover .k-calendar-cell-inner, .k-calendar .k-calendar-td.k-selected:hover .k-link, .k-calendar .k-calendar-td.k-selected.k-hover .k-calendar-cell-inner, .k-calendar .k-calendar-td.k-selected.k-hover .k-link{
+        
+    // }
+    // .k-calendar-td .k-selected{
+    //     background-color: #1A6634;
+    // }
+    .k-calendar .k-calendar-td.k-selected .k-calendar-cell-inner, .k-calendar .k-calendar-td.k-selected .k-link{
+        background-color: #1A6634 !important;
+        color: #ffffff !important;
+        
+    }
+    .k-calendar .k-calendar-view.k-calendar-monthview .k-content .k-calendar-td.k-hover .k-link, .k-calendar .k-calendar-view.k-calendar-monthview .k-content .k-calendar-td.k-state-hover .k-link, .k-calendar .k-calendar-view.k-calendar-monthview .k-content .k-calendar-td.k-state-hovered .k-link, .k-calendar .k-calendar-view.k-calendar-monthview .k-content .k-calendar-td:hover .k-link{
+        outline-color: #1A6634;
+        border-bottom-color :#1A6634;
+        border-left-color: #1A6634;
+        border-right-color :#1A6634;
+        border-top-color:#1A6634;
+    }
+}
+.checkbox{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 13px;    
+    height: 13px;
+    border: 1px solid #1A6634;
+    border-radius: 3px;
+    cursor: pointer;
+    &::after{
+        content: "\e118";
+        font-family: "WebComponentsIcons";
+        color: #ffffff;
+        display: none;
+        font-size: 12px;
+    }
+    &:checked{
+        background-color: #1A6634;
+        &::after{
+            display: block;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+    }
+}
+.checkk{
+    cursor: pointer;
+}

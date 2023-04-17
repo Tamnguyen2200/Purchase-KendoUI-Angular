@@ -1,0 +1,83 @@
+<div class="content">
+    <div class="hearder-title">
+        <div class="title">
+            <p>ĐIỂU KIỆN ÁP DỤNG</p>
+        </div>
+    </div>
+    <div class="wrapper">
+        <kendo-gridlayout [cols]="[400, 400, 400]">
+            <kendo-gridlayout-item [col]="1">
+                <div class="box">
+                    <label for="">Đơn vị áp dụng</label>
+                    <kendo-treeview
+                        [nodes]="data"
+                        textField="text"
+                        kendoTreeViewHierarchyBinding
+                        childrenField="items"
+                        kendoTreeViewCheckable
+                    >
+                    </kendo-treeview>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]="2">
+                <div class="box">
+                    <label for="">Hạn mức sử dụng</label>
+                    <div>
+                        <div class="box1">
+                            <span class="with7">Số lượt sử dùng của coupon</span>
+                            <input type="number" name="" id="" class="form1 with5">
+                        </div>
+                        <div class="box1">
+                            <span class="with7">Số lượt dùng tồi đa/1 giao dịch</span>
+                            <input type="number" name="" id="" class="form1 with5">
+                        </div>
+                    </div>
+                    <label for="">Giá trị đơn hàng được áp dụng coupon</label>
+                    <div class="box1">
+                        <span class="with7">Giá trị đơn hàng tối thiểu</span>
+                        <input type="number" name="" id="" class="form1 with5"><br>
+                    </div>
+                    <label for="">Giá trị chiết khấu tối đa của coupon</label>
+                    <div class="box1">
+                        <span class="with7">Giá trị chiết khấu tối đa</span>
+                        <input type="number" name="" id="" class="form1 with5"><br>
+                    </div>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]="3">
+                <div class="box">
+                    <label for="">Phân loại coupon</label>
+                    <div class="">
+                        <div class="box2">
+                            <input type="radio" name="status" id="public" (click)="check()" class="form1 custmradiobtn">
+                            <span></span>
+                            <label for="public" class="blac radiobtn">công khai</label>
+                        </div>
+                        <div class="box2">
+                            <input type="radio" name="status" id="individual" (click)="check2()" class="form1 custmradiobtn">
+                            <span></span>
+                            <label for="individual" class="blac radiobtn">cá nhân</label>
+                        </div>
+                        <div class="box2 pam">
+                            <input class="checkbox" type="checkbox" name="" [(ngModel)]="isChecked" id="perst" [disabled]="isDisabled">
+                            <label for="perst" class="blac">đích danh</label>
+                        </div>
+                    </div>
+                    <label for="">SL phát hành áp dụng</label>
+                    <div>
+                        <div class="box2 mao">   
+                            <input type="radio" name="" id="personal" class="form1 custmradiobtn">
+                            <span></span>
+                            <label for="personal" class="blac radiobtn">số coupon cho từng cá nhân</label>
+                        </div>
+                        <div class="box2 mao">
+                            <input type="radio" name="" id="all" class="form1 custmradiobtn">
+                            <span></span>
+                            <label for="all" class="blac radiobtn">coupon dùng chung cho tất cả</label>
+                        </div>
+                    </div>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </div>
+</div>

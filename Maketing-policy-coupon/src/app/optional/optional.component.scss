@@ -1,0 +1,52 @@
+.contenOptional{
+    background-color: #EDEFF3;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    .breadcrumb{
+        kendo-breadcrumb{
+            background-color: #EDEFF3;
+            font-weight: 700;
+            color: #1A6634;
+            width: 450px;
+        }
+        
+    }
+    .listBtn{
+        kendo-button{
+            color: #1A6634;
+            font-weight: 700;
+            font-size: 13px;
+        }
+        .mar{
+            margin: 0 5px;
+            background-color: #ffffff;
+           
+        }
+        .boxshardown{
+            box-shadow: 0px 3px 6px #008000;
+        }
+        .boxshardown1{
+            box-shadow: 0px 3px 6px rgba(149, 157, 179, 0.2);
+        }
+        .custombtn{
+            color: #ffffff !important;
+            
+        }
+        .ba{
+            box-shadow: 0px 3px 6px #008000;
+        }
+    }
+    .btn{
+        margin-right: 10px;
+        kendo-buttongroup{
+            background-color: #ffffff;
+            border-radius: 5px;
+            position: relative;
+            kendo-button{
+                width: 50x;
+                font-size: 13px;
+            }
+        }
+    }
+}

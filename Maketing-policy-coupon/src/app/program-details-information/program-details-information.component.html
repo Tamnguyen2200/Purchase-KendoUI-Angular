@@ -1,0 +1,52 @@
+<div class="content">
+    <div class="hearder-title">
+        <div class="title">
+            <p>THÔNG TIN CHI TIẾT CHƯƠNG TRÌNH</p>
+        </div>
+        <div class="search_bar">
+            <input class="inputvalue" [(ngModel)]="filterName" type="text" autocomplete="off" placeholder="Tìm theo barcode, poscode, tên sản phẩm" name="filterName">
+            <kendo-button imageUrl="../../../assets/svgIcon/Search_icon_white.svg" (click)="onSearch(filterName)"><span>Tìm</span></kendo-button>
+        </div>
+        <div class="list_btn">
+            <kendo-button class="whithbtn boxshardown1" icon="export"></kendo-button>
+            <kendo-button class="whithbtn boxshardown1" icon="import">Template</kendo-button>
+            <kendo-button class="custombtn boxshardown" imageUrl="../../assets/svgIcon/plus.svg" themeColor="info" (click)="toggle()">THÊM MỚI SẢN PHẨM</kendo-button>
+        </div>
+    </div>
+    <kendo-grid 
+    [data]="gridData" 
+    [pageSize]="take"
+    [skip]="skip"
+    [pageable]="true"
+    scrollable="none"
+    (pageChange)="pageChange($event)"
+     >
+        <kendo-grid-column [style]="{'background-color': '#EDEFF3'}" >
+            <ng-template kendoGridCellTemplate let-dataItem >
+                <div class="product-container">
+                    <div class="btngroup">
+                        <button class="btn-delete"><img src="../../assets/svgIcon/bin.svg" alt=""></button>
+                        <button class="btn-edit" (click)="edit(dataItem.Code)"><img src="../../assets/svgIcon/edit.svg" alt=""></button>
+                    </div>
+                    <img class="customimg" src="http://test.lapson.vn/{{ dataItem.ImageThumb }}" alt="{{ dataItem.productName }}">
+                    <div class="dre">
+                        <p class="heif">{{ dataItem.ProductName }}</p>
+                        <p>{{ dataItem.Barcode }}</p>
+                    </div>
+                </div>
+              </ng-template>
+        </kendo-grid-column>
+        <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
+            <div class="customPageside">
+                <div>
+                    <kendo-pager-page-sizes [pageSizes]="sizes"></kendo-pager-page-sizes>
+                </div>
+                <div class="customePageBTN">
+                    <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+                    <kendo-pager-numeric-buttons [buttonCount]="buttonCount"></kendo-pager-numeric-buttons>
+                    <kendo-pager-next-buttons></kendo-pager-next-buttons>
+                </div>
+            </div>
+        </ng-template>
+    </kendo-grid>
+</div>

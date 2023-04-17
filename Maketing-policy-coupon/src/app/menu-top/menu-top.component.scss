@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Mulish);
+
+
+kendo-appbar{
+    background-color: #FFFFFF;
+    box-shadow:1px 1px 10px #cccccc;
+    justify-content: space-between;
+    height: 50px;
+    font-size: 13px;
+    width: 1280px;
+    z-index: 47;
+    kendo-appbar-section{
+        margin-top: -5px;
+    }
+}
+.listMenu{
+    display: flex;
+    list-style: none;
+    font-family: 'Mulish';
+    li{
+        font-size: 13px;
+        padding: 6px 10px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #BBBBBB;
+        position: relative ;
+        &.gree{
+            color: #008000;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+        .action-line{
+            width: 80px;
+            height: 3px;
+            background-color: #008000;
+            position: absolute;
+            margin-left: -3px;
+            margin-top: 11px;
+            border-radius: 3px;
+        }
+    }
+    .line{
+        width: 2px;
+        background-color:  #C4C4C4;
+        border-radius: 4px;
+        height: 25px;
+        margin-top: 5px;
+        
+    }
+}
+.listIcon{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    align-items: center;
+    li{
+        padding: 6px 20px;
+        .avatar{
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+        }
+        .action-dot{
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 100%;
+            background-color: #05D103;
+            margin-top: -12px;
+            margin-left: 22px;
+        }
+        &:hover{
+            cursor: pointer;
+            
+        }
+    }
+}
+::ng-deep{
+    .k-appbar-static{
+        position: fixed;
+    }
+}

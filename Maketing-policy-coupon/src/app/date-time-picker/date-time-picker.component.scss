@@ -1,0 +1,81 @@
+::ng-deep{
+    // .k-datetime-wrap{
+    //     overflow: auto;
+    // }
+    .k-toolbar.k-toolbar-resizable{
+        display: none;
+    }
+    .k-datetime-buttongroup{
+        display: none;
+    }
+    .k-time-tab .k-datetime-selector {
+        transform: translateX(0);
+    }
+    .k-datetime-selector{
+        display: block;
+        transition: none;
+    }
+    .k-datetime-container {
+        display: block;
+    }
+    
+    .k-i-clock::before{
+        content: '\e108';
+    }
+    .k-datetime-time-wrap{
+        display: none;
+    }
+    .line{
+        height: 1px;
+        background-color: #DBDEE7;
+        margin-bottom: 15px;
+    }
+    .box{
+        margin-bottom: 15px;
+        .checkbox{
+            appearance: none;
+            -webkit-appearance: none;
+            width: 13px;
+            height: 13px;
+            border: 1px solid rgba(153, 153, 153, 1);
+            border-radius: 100%;
+            cursor: pointer;
+            &::after{
+                content: "\e118";
+                font-family: "WebComponentsIcons";
+                color: #ffffff;
+                display: none;
+                font-size: 12px;
+            }
+            &:checked{
+                border: 1px solid #1A6634;
+                background-color: #1A6634;
+                &::after{
+                    display: block;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .k-datetime-calendar-wrap, .k-datetime-time-wrap {
+       margin-top: 15px;
+    }
+    .k-time-header{
+        display: none;
+    }
+    .k-time-list-container{
+        height: 150px;
+        width: 100%;
+    }
+    .display{
+        display: none;
+    }
+    .k-calendar .k-calendar-md .k-calendar-range .k-disabled .k-widget{
+        opacity: 1 !important;
+    }
+}
+kendo-datetimepicker{
+    width: 160px;
+}

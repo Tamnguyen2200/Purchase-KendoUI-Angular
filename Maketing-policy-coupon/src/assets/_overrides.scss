@@ -1,0 +1,49 @@
+// Compatible with @progress/kendo-theme-default v.6.0.3
+
+%tb-typography {
+  @include typography-classes($tb-typography);
+}
+
+    .k-calendar .k-calendar-view.k-calendar-monthview .k-content .k-calendar-td.k-hover .k-link,.k-calendar .k-calendar-view.k-calendar-monthview .k-content  .k-calendar-td.k-state-hover .k-link,.k-calendar .k-calendar-view.k-calendar-monthview .k-content  .k-calendar-td.k-state-hovered .k-link,.k-calendar .k-calendar-view.k-calendar-monthview .k-content  .k-calendar-td:hover .k-link{
+        border-bottom-left-radius: 100%;
+                border-bottom-right-radius: 100%;
+                border-top-left-radius: 100%;
+                border-top-right-radius: 100%;
+                outline-color: #36C8CF;
+                border-bottom-color: $tb-kendo-series-d;
+                border-left-color: $tb-kendo-series-d;
+                border-right-color: $tb-kendo-series-d;
+                border-top-color: $tb-kendo-series-d;
+                outline-offset: unset;
+                outline-style: solid;
+                outline-width: 2px;
+        
+}
+    .k-calendar .k-calendar-view.k-calendar-monthview .k-content .k-calendar-td.k-selected .k-link{
+        border-bottom-left-radius: 100%;
+                border-bottom-right-radius: 100%;
+                border-top-left-radius: 100%;
+                border-top-right-radius: 100%;
+        
+}
+    .k-calendar .k-calendar-view.k-calendar-monthview .k-content .k-calendar-td.k-range-mid .k-link{
+        border-bottom-left-radius: 100%;
+                border-bottom-right-radius: 100%;
+                border-top-left-radius: 100%;
+                border-top-right-radius: 100%;
+        
+}
+    .k-calendar .k-calendar-view.k-calendar-monthview .k-content .k-calendar-td.k-focus .k-link,.k-calendar .k-calendar-view.k-calendar-monthview .k-content  .k-calendar-td.k-state-focus .k-link,.k-calendar .k-calendar-view.k-calendar-monthview .k-content  .k-calendar-td.k-state-focused .k-link,.k-calendar .k-calendar-view.k-calendar-monthview .k-content  .k-calendar-td:focus .k-link{
+        border-bottom-left-radius: 100%;
+                border-bottom-right-radius: 100%;
+                border-top-left-radius: 100%;
+                border-top-right-radius: 100%;
+        
+}
+    .k-calendar .k-calendar-view.k-calendar-monthview .k-content .k-calendar-td.k-today .k-link{
+        border-bottom-left-radius: 100%;
+                border-bottom-right-radius: 100%;
+                border-top-left-radius: 100%;
+                border-top-right-radius: 100%;
+        
+}

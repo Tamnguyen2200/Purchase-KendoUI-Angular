@@ -1,0 +1,120 @@
+<div class="content">
+    <div class="hearder-title">
+        <div class="title">
+            <p >THÔNG TIN COUPON</p>
+            <p class="gree">Coupon giảm giá dơn hàng</p>
+        </div>
+        <div class="optionlag">
+            <button (click)="onclick1()" [ngClass]="{'clicked1': isClicked1}">Tiếng Việt </button>
+            <div class="line"></div>
+            <button (click)="onclick2()" [ngClass]="{'clicked2': isClicked2}">日本語</button>
+            <div class="line"></div>
+            <button (click)="onclick3()" [ngClass]="{'clicked3': isClicked3}">English</button>
+        </div>
+    </div>
+    <div class="wrapper">
+        <kendo-gridlayout [rows]="[70, 70, 70, 60, 60]" [cols]="[200, 130, 840]">
+            <kendo-gridlayout-item [col]="1" [row]="1">
+                <div class="box">
+                    <label for="Id">Mã bắt đầu coupon</label>
+                    <input type="text" id="Id" class="form1 with1">
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]="2" [row]="1">
+                <div class="box">
+                    <label for="SL">SL phát hành</label>
+                    <input type="number" id="SL" class="form1 with2">
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]="3" [row]="1">
+                <div class="box" [hidden]="showVN">
+                    <label for="nameCoupon">Tên coupon</label>
+                    <input type="text" id="nameCoupon" class="form1 with3">
+                </div>
+                <div class="box" [hidden]="showJS">
+                    <label for="nameCoupon">Tên coupon</label>
+                    <input type="text" id="nameCoupon" class="form1 with3">
+                </div>
+                <div class="box" [hidden]="showEL">
+                    <label for="nameCoupon">Tên coupon</label>
+                    <input type="text" id="nameCoupon" class="form1 with3">
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]="1" [row]="2" [colSpan]="2">
+                <div class="box">
+                    <div class="">
+                        <input class="checkbox" type="checkbox" name="">
+                        <label for="randomID">Mã coupon ngẫu nhiên gấp (x) lần</label>
+                    </div>
+                    <input type="number" id="randomID" class="form1 with4">
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]="3" [row]="2">
+                <div class="box" [hidden]="showVN">
+                    <label for="condition">Mô tả điều kiện áp dụng</label>
+                    <input type="text" id="condition" class="form1 with3">
+                </div>
+                <div class="box" [hidden]="showJS">
+                    <label for="condition">Mô tả điều kiện áp dụng</label>
+                    <input type="text" id="condition" class="form1 with3">
+                </div>
+                <div class="box" [hidden]="showEL">
+                    <label for="condition">Mô tả điều kiện áp dụng</label>
+                    <input type="text" id="condition" class="form1 with3">
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]="1" [row]="3" [colSpan]="2">
+                <div class="box">
+                    <div class="cus">
+                        <label for="valueCoupon">Giá trị coupon</label>
+                        <div class="pading">
+                            <input class="checkbox" type="checkbox" name="" id="pers">
+                            <label for="pers" class="green checkk">tỷ lệ %</label>
+                        </div>
+                    </div>
+                    <input type="number" id="valueCoupon" class="form1 with4">
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]="3" [row]="3" [colSpan]="3">
+                <div class="box" [hidden]="showVN">
+                    <label for="condition">Diễn giải </label>
+                    <textarea type="text" id="condition" class="form1 with3 csstextarea"></textarea>
+                </div>
+                <div class="box" [hidden]="showJS">
+                    <label for="condition">Diễn giải </label>
+                    <textarea type="text" id="condition" class="form1 with3 csstextarea"></textarea>
+                </div>
+                <div class="box" [hidden]="showEL">
+                    <label for="condition">Diễn giải </label>
+                    <textarea type="text" id="condition" class="form1 with3 csstextarea"></textarea>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]="1" [row]="4" [colSpan]="2">
+                <div class="box">
+                    <label for="datetim">Thời gian hiệu lực</label>
+                    <div class="cutom-datepicker">
+                        <kendo-datepicker calendarType="classic" (navigate)="onNavigate($event)" kendoDateInputsLocalization [disabledDates]="disabledDates" [value]="today" format="dd/MM/yyyy" [weekNumber]="false">
+                            <ng-template kendoCalendarNavigationItemTemplate let-activeView="activeView">
+                                <div>{{ activeView }}</div>
+                            </ng-template>
+                        </kendo-datepicker>
+                        <kendo-datepicker calendarType="classic" (navigate)="onNavigate($event)" kendoDateInputsLocalization [disabledDates]="disabledDates" [value]="today"format="dd/MM/yyyy" >
+                            <ng-template kendoCalendarNavigationItemTemplate let-activeView="activeView">
+                                <div>{{ activeView }}</div>
+                            </ng-template>
+                        </kendo-datepicker>
+                    </div>
+                </div>
+            </kendo-gridlayout-item>
+            <kendo-gridlayout-item [col]="1" [row]="5" [colSpan]="2">
+                <div class="box">
+                    <label for="datetim">Tình trạng</label>
+                    <p class="gree">
+                        Đã phê duyệt áp dụng
+                    </p>
+                </div>
+            </kendo-gridlayout-item>
+        </kendo-gridlayout>
+    </div>
+    
+</div>  
