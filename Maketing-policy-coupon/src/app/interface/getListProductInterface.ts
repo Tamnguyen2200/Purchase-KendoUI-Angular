@@ -43,4 +43,14 @@ export class body {
     pageSize: number = 0;
     filter: string = '';
     sort: string = '';
-  }
+}
+export class code{
+    code: number =0;
+}
+export class getProduct {
+    StatusCode: number = 0;
+    ErrorString: string = '';
+    ObjectReturn?: {
+        Data: listdata,
+    }
+}

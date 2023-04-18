@@ -1,60 +1,69 @@
 // @import url(https://fonts.googleapis.com/css?family=Mulish);
 
-kendo-drawer-container{
-    .right-drawer-container{
-        overflow: hidden;
-        .rightDrawer{
-            .gree{
-                color: #1A6634;
+
+.right-drawer-container{
+    overflow: hidden;
+    .rightDrawer{
+        .gree{
+            color: #1A6634;
+            font-weight: 700;
+            margin: 10px 30px;
+        }
+        .line{
+            width: 100%;
+            height: 1px;
+            background-color: #000000;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            margin: 10px 20px;
+            label{
                 font-weight: 700;
-                margin: 10px 30px;
             }
-            .line{
-                width: 100%;
-                height: 1px;
-                background-color: #000000;
-            }
-            .form{
-                display: flex;
-                flex-direction: column;
-                flex-wrap: nowrap;
-                justify-content: space-evenly;
-                margin: 10px 20px;
-                label{
-                    font-weight: 700;
-                }
-                input{
-                    width: 380px;
-                    height: 35px;
-                    border: 2px solid#DBDEE7;
-                    margin-top: 3px;
-                }
-            }
-            .boxing{
-                width: 260px;
-                height: 260px;
+            input{
+                width: 380px;
+                height: 35px;
                 border: 2px solid#DBDEE7;
-                margin: 10px 30px;
+                margin-top: 3px;
             }
-            .btn{
-                margin: 10px 20px;
-                .but{
-                    margin-right: 8px;
-                    box-shadow: 0px 3px 6px #008000;
-        
-                    font-weight: 700;
-                    width: 94px;
-                    height: 35px;
-                }
-                .Closebtn{
-                    background-color: #ffffff;
-                    color: #1A6634;
-                }
-                .Updatebtn{
-                    background-color: #1A6634;
-                    color: #ffffff;
-                }
+        }
+        .boxing{
+            width: 260px;
+            height: 260px;
+            border: 2px solid#DBDEE7;
+            margin: 10px 30px;
+            img{
+                width: 250px;
+                height: 250px;
             }
+        }
+        .btn{
+            margin: 10px 20px;
+            .but{
+                margin-right: 8px;
+                box-shadow: 0px 3px 6px #008000;
+    
+                font-weight: 700;
+                width: 94px;
+                height: 35px;
+            }
+            .Closebtn{
+                background-color: #ffffff;
+                color: #1A6634;
+            }
+            .Updatebtn{
+                background-color: #1A6634;
+                color: #ffffff;
+            }
+        }
+    }
+    kendo-drawer-content{
+        height: 745px;
+        .custom-toolbar{
+            margin: 10px;
         }
         .left-drawer-container{
             font-size: 13px;
@@ -64,20 +73,13 @@ kendo-drawer-container{
             kendo-drawer{
                 background-color: #5A6276;
                 color: #ffffff;
-                padding-top: 55px;
                 border: none;
                 font-family: 'Mulish';
                 font-weight: 700;
                 position: relative;
                 z-index: 0;
-                .k-drawer-wrapper{
-                    width: 150px;
-                    height: 60px;
-                    .k-drawer-items{
-                        .k-selected{
-                            background-color: #1A2334 !important;
-                        }
-                    }
+                .customText{
+                    margin-left: 10px;
                 }
             }
             .drawer-content{
@@ -86,7 +88,6 @@ kendo-drawer-container{
                 .scrollable{
                     overflow-y: auto !important; 
                     max-height: 700px;
-                    margin-top: 50px;
                 }
                 .linepage{
                     margin-top: 15px;
@@ -98,6 +99,7 @@ kendo-drawer-container{
         }
     }
 }
+
 ::ng-deep {
     .k-drawer-item .k-level-1{
         background-color: #1A2334 !important;
@@ -108,10 +110,15 @@ kendo-drawer-container{
     .k-drawer-item.k-selected{
         background-color: #1A2334;
     }
+    .k-drawer-wrapper{
+        width: 417px;
+        height: 600px;
+    }
     .k-drawer-item.k-selected:hover, .k-drawer-item.k-selected.k-hover{
         background-color: #1A2334;
     }
-    .k-drawer-wrapper{
-        width: 417px;
+    .k-drawer-item.k-level-1{
+        background-color: #1A2334;
+        color: #959DB3;
     }
 }

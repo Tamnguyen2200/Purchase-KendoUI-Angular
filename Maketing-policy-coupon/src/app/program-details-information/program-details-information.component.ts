@@ -1,8 +1,9 @@
-import { Component, AfterViewInit, Input  } from '@angular/core';
-import { GridDataResult, PageChangeEvent, PagerType, SelectableMode, SelectableSettings } from '@progress/kendo-angular-grid';
+import { Component, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
+import { GridDataResult, PageChangeEvent, PagerType } from '@progress/kendo-angular-grid';
 import { LisProductService } from '../CallingAPI/lis-product.service';
 import { DataSourceRequestState, toDataSourceRequestString } from '@progress/kendo-data-query';
 import { DrawerComponent } from '@progress/kendo-angular-layout';
+import { ProductService } from '../CallingAPI/product.service';
 declare var $: any;
 @Component({
   selector: 'app-program-details-information',
@@ -11,6 +12,7 @@ declare var $: any;
 })
 export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
   @Input() drawerRef!: DrawerComponent;
+  @Output() dataReceivedEvent = new EventEmitter<any>()
   public gridData!: GridDataResult;
   public sizes = [15, 30, 50];
   public page: number = 0;
@@ -21,13 +23,17 @@ export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
   loading: boolean = false;
   public filterName = '';
 
-
   toggle(){
     this.drawerRef.toggle();
   }
-  edit(code: number){
-    console.log(code)
-    this.drawerRef.toggle();
+  edit(coder: number){
+    const parma ={
+      code: coder
+    }
+    this.ProductService.getlistProduct(parma).subscribe((value) =>{
+      this.dataReceivedEvent.emit(value.ObjectReturn)
+      this.drawerRef.toggle();
+    })
   }
   pageChange(event: PageChangeEvent){
     this.skip = event.skip;
@@ -42,7 +48,10 @@ export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
     $('.k-pager-first').html('<span>Đầu</span>');
     $('.k-pager-last').html('<span>Cuối</span>');
   }
-  constructor(public ListService: LisProductService) {
+  constructor(
+    public ListService: LisProductService,
+    public ProductService:ProductService
+    ) {
   }
 
   public fil: DataSourceRequestState = {
