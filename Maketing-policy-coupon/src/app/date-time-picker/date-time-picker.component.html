@@ -1,27 +1,30 @@
 <kendo-datetimepicker 
     (open)="onOpen()" 
     (focus)="onFocus()"
+    (close)="onClose()"
     calendarType="classic" 
     (navigate)="onNavigate($event)" 
     [disabledDates]="disabledDates" 
     [value]="today" 
     defaultTab="date">
-
+    
 </kendo-datetimepicker>
 <div class="display">
-    <div  class="TimePicker">
+    <div  id="TimePicker">
         <div class="line"></div>
-        <div class="box">
-            <input class="checkbox" type="checkbox" name="" id="day">
-            <label for="day" class="blac">Cả ngày</label>
+        <div class="time">
+            <div class="box pee">
+                <input class="checkbox" type="checkbox" name="" id="day">
+                <label for="day" class="blac">Cả ngày</label>
+            </div>
+            <div>
+                <kendo-combobox
+                    [data]="listItems"
+                    placeholder="hh:mm"
+                ></kendo-combobox>
+                <button (click)="onAM()">AM</button>
+                <button (click)="onPM()">PM</button>
+            </div>
         </div>
-        <section class="dropdownbtn">
-            <button (click)="toggleMenu()">Show Menu</button>
-            <ul *ngIf="showMenu" class="menu">
-              <li>Item 1</li>
-              <li>Item 2</li>
-              <li>Item 3</li>
-            </ul>
-          </section>
     </div>
 </div>

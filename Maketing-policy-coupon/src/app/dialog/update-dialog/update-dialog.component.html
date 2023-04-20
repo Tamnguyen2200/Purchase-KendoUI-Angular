@@ -1,0 +1,24 @@
+<kendo-dialog
+    *ngIf="actionDialog.isDialogOpen"
+    (close)="close('cancel')"
+    [minWidth]="250"
+    [width]="450"
+    >
+    <kendo-dialog-titlebar>
+        <div class="title-dialog">
+          <img src="../../../assets/svgIcon/erron_icon.svg" alt=""> 
+          <p class="red">Cập Nhật Sản Phẩm</p>
+        </div>
+    </kendo-dialog-titlebar>
+    <div>
+        <p style="margin: 30px; text-align: center;">
+            Bạn có chắt rằng muốn cập nhật sản phẩm
+        </p>
+    </div>
+    <kendo-dialog-actions>
+    <button kendoButton (click)="close('no')">No</button>
+    <button kendoButton (click)="close('yes')" themeColor="primary">
+        Yes
+    </button>
+    </kendo-dialog-actions>
+</kendo-dialog>

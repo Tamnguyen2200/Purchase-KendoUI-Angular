@@ -1,0 +1,24 @@
+kendo-dialog-titlebar{
+    background-color: #ffffff;
+    .title-dialog{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        img{
+            margin-right: 15px;
+        }
+        .red{
+            color: #FD7676;
+            font-weight: 700;
+        }
+    }
+}
+
+::ng-deep{
+    button.k-window-titlebar-action.k-dialog-titlebar-action.k-button.k-icon-button.k-button-md.k-rounded-md.k-button-flat-base.k-button-flat{
+        display: none;
+    }
+}

@@ -4,6 +4,8 @@ import { LisProductService } from '../CallingAPI/lis-product.service';
 import { DataSourceRequestState, toDataSourceRequestString } from '@progress/kendo-data-query';
 import { DrawerComponent } from '@progress/kendo-angular-layout';
 import { ProductService } from '../CallingAPI/product.service';
+import { DataTransmissionService } from '../Service/data-transmission.service';
+
 declare var $: any;
 @Component({
   selector: 'app-program-details-information',
@@ -19,10 +21,34 @@ export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
   public type: PagerType = 'numeric';
   public buttonCount = 3;
   public skip = 0;
-  public take = 15;
+  public take = 30;
   loading: boolean = false;
   public filterName = '';
 
+  constructor(
+    public ListService: LisProductService,
+    public ProductService:ProductService,
+    public actionDialog: DataTransmissionService
+    ) {
+  }
+  public ngOnInit(): void {
+    this.loading = true;
+    const filterString = toDataSourceRequestString(this.fil);
+    const filter = filterString.substring(filterString.indexOf("(") + 1, filterString.lastIndexOf(")"))
+    const body = {
+      page: this.page,
+      pageSize: this.take, 
+      filter: filter,
+      sort:'',
+    }
+    this.ListService.getlistProduct(body).subscribe((value) =>{
+      this.gridData = {
+        data : value.ObjectReturn?.Data!,
+        total: value.ObjectReturn?.Total!
+      }
+      this.loading = false;
+    })
+  }
   toggle(){
     this.drawerRef.toggle();
   }
@@ -48,21 +74,16 @@ export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
     $('.k-pager-first').html('<span>Đầu</span>');
     $('.k-pager-last').html('<span>Cuối</span>');
   }
-  constructor(
-    public ListService: LisProductService,
-    public ProductService:ProductService
-    ) {
-  }
 
   public fil: DataSourceRequestState = {
     filter:{
-      logic: "and",
+      logic: "or",
       filters: [],
     }
   };
   public onSearch(filterName: string): void{
     this.fil.filter = {
-      logic: "and",
+      logic: "or",
       filters:[
         { field: 'ProductName', operator: 'contains', value: filterName },
         { field: 'Barcode', operator: 'contains', value: filterName },
@@ -71,22 +92,8 @@ export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
     }
     this.ngOnInit()
   }
-  
-  public ngOnInit(): void {
-    this.loading = true;
-    const body = {
-      page: this.page,
-      pageSize: this.take, 
-      filter: toDataSourceRequestString(this.fil),
-      sort:'',
-    }
-    this.ListService.getlistProduct(body).subscribe((value) =>{
-      this.gridData = {
-        data : value.ObjectReturn?.Data!,
-        total: value.ObjectReturn?.Total!
-      }
-      this.loading = false;
-    })
-  }
+  public openDialog(): void {
+    this.actionDialog.isDialogOpen = true
 
+  }
 }

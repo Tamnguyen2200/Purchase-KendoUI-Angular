@@ -1,8 +1,7 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { DrawerComponent, DrawerItem, DrawerItemExpandedFn, DrawerMode, DrawerSelectEvent } from '@progress/kendo-angular-layout';
-import { listdata } from './interface/getListProductInterface';
 import { items } from './Common/items';
-import { da } from 'date-fns/locale';
+import { DataTransmissionService } from './Service/data-transmission.service';
 
 declare var $: any;
 @Component({
@@ -12,20 +11,37 @@ declare var $: any;
 })
 export class AppComponent implements AfterViewInit{
   title = 'Maketing-policy-coupon';
+
+  constructor(public actionDialog: DataTransmissionService){
+
+  }
   @ViewChild('rightDrawer') rightDrawer!: DrawerComponent;
+  @ViewChild('leftDrawer') leftDrawer!: DrawerComponent;
+
   public expandMode: DrawerMode = "overlay";
   public expanded:boolean = false;
   public selected = "CHÍNH SÁCH";
   public items: Array<DrawerItem> = items;
   public expandedIndices = [3];
   public product: any;
-  
+  public isClicked: boolean= true;
+
   onDataReceived(data: any) {
     this.product = data
   }
   public isItemExpanded: DrawerItemExpandedFn = (item): boolean => {
     return this.expandedIndices.indexOf(item.id) >= 0;
   };
+  public Update(){
+    this.actionDialog.isDialogOpen = true
+    console.log('onpen')
+    this.rightDrawer.toggle()
+    
+  }
+  public clickbtn(){
+    this.isClicked = !this.isClicked
+    this.leftDrawer.toggle()
+  }
   public onSelect(ev: DrawerSelectEvent): void{
     this.selected = ev.item.text;
     const current = ev.item.id;

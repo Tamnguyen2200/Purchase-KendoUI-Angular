@@ -8,7 +8,7 @@
   class="rightDrawer"
   [width]= 417>
     <ng-template kendoDrawerTemplate>
-      <div *ngIf="product"> 
+      <div *ngIf="product" class="draew"> 
         <h2 class="gree">THÊM MỚI SẢN PHẨM</h2>
         <div class="line"></div>
         <div class="form">
@@ -24,7 +24,7 @@
         </div>
         <div class="btn">
           <button kendoButton class="Closebtn but" (click)="rightDrawer.toggle()">ĐÓNG</button>
-          <button kendoButton class="Updatebtn but" (click)="rightDrawer.toggle()">CẬP NHẬT</button>
+          <button kendoButton class="Updatebtn but" (click)="Update()">CẬP NHẬT</button>
         </div>
       </div>
       <div *ngIf="!product"> 
@@ -44,14 +44,17 @@
         </div>
         <div class="btn">
           <button kendoButton class="Closebtn but" (click)="rightDrawer.toggle()">ĐÓNG</button>
-          <button kendoButton class="Updatebtn but" (click)="rightDrawer.toggle()">CẬP NHẬT</button>
+          <button kendoButton class="Updatebtn but" (click)="Update()">CẬP NHẬT</button>
         </div>
       </div>
     </ng-template>
   </kendo-drawer>
   <kendo-drawer-content>
-    <div class="custom-toolbar">
-      <button kendoButton icon="menu" fillMode="flat" (click)="leftDrawer.toggle()"></button>
+    <div class="hearder">
+      <div class="custom-toolbar ">
+        <button kendoButton icon="menu" fillMode="flat" (click)="clickbtn()" ></button>
+      </div>
+      <app-menu-top [ngClass]="{'change': isClicked}" class="width"></app-menu-top>
     </div>
     <kendo-drawer-container class="left-drawer-container">
       <kendo-drawer 
@@ -71,7 +74,6 @@
       </ng-template>
       </kendo-drawer>
       <kendo-drawer-content class="drawer-content"> 
-        <app-menu-top></app-menu-top>
         <div class="scrollable">
           <app-optional></app-optional>
           <div class="linepage"></div>
@@ -84,3 +86,4 @@
     </kendo-drawer-container>
   </kendo-drawer-content>
 </kendo-drawer-container>
+<app-update-dialog></app-update-dialog>

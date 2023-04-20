@@ -16,6 +16,9 @@ import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { EditorModule } from '@progress/kendo-angular-editor';
 import { HttpClientModule } from '@angular/common/http';
 import { DropDownButtonModule } from '@progress/kendo-angular-buttons'; 
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { ComboBoxModule } from '@progress/kendo-angular-dropdowns';
+
 
 import "@progress/kendo-angular-intl/locales/de/all";
 import "@progress/kendo-angular-intl/locales/vi/all";
@@ -29,6 +32,11 @@ import { NotificationComponent } from './notification/notification.component';
 import { PROGRAMDETAILSINFORMATIONComponent } from './program-details-information/program-details-information.component';
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
 import { AddNewProductComponent } from './add-new-product/add-new-product.component';
+import { DeleteDialogComponent } from './dialog/delete-dialog/delete-dialog.component';
+import { UpdateDialogComponent } from './dialog/update-dialog/update-dialog.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+
+
 
 
 
@@ -42,7 +50,10 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
     NotificationComponent,
     PROGRAMDETAILSINFORMATIONComponent,
     DateTimePickerComponent,
-    AddNewProductComponent
+    AddNewProductComponent,
+    DeleteDialogComponent,
+    UpdateDialogComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +73,8 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
     TreeViewModule,
     HttpClientModule,
     DropDownButtonModule,
+    DialogsModule,
+    ComboBoxModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: "vi-VN" }],
   bootstrap: [AppComponent]
