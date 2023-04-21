@@ -1,5 +1,7 @@
 kendo-dialog-titlebar{
     background-color: #ffffff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
     .title-dialog{
         display: flex;
         flex-direction: row;
@@ -16,9 +18,48 @@ kendo-dialog-titlebar{
         }
     }
 }
-
+.redtext{
+    color: #FD7676;
+}
+kendo-dialog-actions{
+    .actionDialog{
+        background-color: #ffffff;
+        width: 150px;
+        height: 50px;
+        border: none;
+        margin: 0;
+        padding: 0;
+        border-right: 1px solid #ebebeb;
+        border-radius: 0;
+        font-weight: 700;
+        color: #959DB3;
+    }
+    .borderleft{
+        border-bottom-left-radius: 5px;
+    }
+    .red{
+        background-color: #FD7676;
+        color: #ffffff;
+        border-bottom-right-radius: 5px;
+    }
+}
+.styletext{
+    text-align: center;
+    color: #36C8CF;
+    font-weight: 700;
+}
 ::ng-deep{
     button.k-window-titlebar-action.k-dialog-titlebar-action.k-button.k-icon-button.k-button-md.k-rounded-md.k-button-flat-base.k-button-flat{
         display: none;
+    }
+    .k-window-actions{
+        padding-block: 0;
+        padding-inline: 0;
+    }
+    .k-dialog-actions{
+        gap: 0;
+    }
+    .k-window.k-dialog.ng-tns-c69-3{
+        border-radius: 5px !important;
     }
 }

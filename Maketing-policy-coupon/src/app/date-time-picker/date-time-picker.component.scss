@@ -18,14 +18,22 @@
     .k-datetime-container {
         display: block;
     }
-    
+    .k-popup > .k-list{
+        width: 100%;
+    }
     .k-i-clock::before{
         content: '\e108';
     }
     .k-datetime-time-wrap{
         display: none;
     }
-    
+    .k-popup{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        align-items: center;
+    }
     
     .k-datetime-calendar-wrap, .k-datetime-time-wrap {
        margin-top: 15px;
@@ -40,6 +48,9 @@
     .k-calendar .k-calendar-md .k-calendar-range .k-disabled .k-widget{
         opacity: 1 !important;
     }
+    // .k-datetime-footer.k-action-buttons.k-actions.k-hstack.k-justify-content-stretch.ng-star-inserted{
+    //     display: none;
+    // }
 }
 kendo-datetimepicker{
     width: 160px;
@@ -70,6 +81,7 @@ kendo-dropdownbutton{
     margin-bottom: 15px;
     .blac{
         margin-left: 10px;
+        cursor: pointer;
     }
     .checkbox{
         appearance: none;
@@ -87,14 +99,17 @@ kendo-dropdownbutton{
             font-size: 12px;
         }
         &:checked{
-            border: 1px solid #1A6634;
-            background-color: #1A6634;
+            border: 1px solid #5CB800;
+            background-color: #5CB800;
             &::after{
                 display: block;
                 display: flex;
                 align-items: center;
                 text-align: center;
             }
+        }
+        &:checked + .blac{
+            color: #5CB800;
         }
     }
 }
@@ -104,11 +119,48 @@ kendo-combobox{
 
 button{
     margin: 0 5px;
-    background-color: #56ffe8;
     border: #ffffff;
+    background-color: #ffffff;
     border-radius: 50%;
     width: 30px;
     text-align: center;
     height: 30px;
     font-size: 13px;
+    opacity: 0.4;
+    &:hover{
+        background-color: #1A6634;
+        color: #ffffff;
+        opacity: 1;
+    }
+}
+.clicked{
+    background-color: #1A6634;
+    color: #ffffff;
+    opacity: 1;
+}
+.style{
+    display: flex;
+}
+
+.datetimpicker{
+    width: 400px;
+    border-radius: 5px;
+    kendo-button{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    kendo-dateinput{
+        width: 250px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        background-color: #F5F6F8;
+    }   
+}
+.disabledbtn{
+    opacity: 0.4;
+    margin-bottom: 15px;
+    pointer-events: none;
+}
+.magi{
+    margin-bottom: 15px;
 }

@@ -20,7 +20,6 @@ export class UpdateDialogComponent {
     this.actionDialog.isDialogOpen = true;
   }
   ngOnInit() {
-    this.data = this.actionDialog.getData('productData');
     console.log(this.data)
   }
 }

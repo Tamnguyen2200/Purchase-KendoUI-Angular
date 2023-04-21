@@ -1,6 +1,6 @@
 <kendo-dialog
     *ngIf="actionDialog.isDialogOpen"
-    (close)="close('cancel')"
+    (close)="close()"
     [minWidth]="250"
     [width]="450"
     >
@@ -11,14 +11,18 @@
         </div>
     </kendo-dialog-titlebar>
     <div>
-        <p style="margin: 30px; text-align: center;">
-            Bạn có chắt rằng muốn xóa sản phẩm
+        <p style="text-align: center;">
+            Bạn có chắc chắn muốn xóa sản phẩm
         </p>
+        <p class="styletext">
+            {{actionDialog.MaSP}} : {{actionDialog.TenSP}}
+        </p>
+        <p style="margin: 30px; text-align: center;">Sản phẩm bị xóa sẽ <span class="redtext">KHÔNG</span> thể khôi phục lại.</p>
     </div>
     <kendo-dialog-actions>
-    <button kendoButton (click)="close('no')">No</button>
-    <button kendoButton (click)="close('yes')" themeColor="primary">
-        Yes
+    <button class="actionDialog borderleft" kendoButton (click)="close()">KHÔNG XÓA</button>
+    <button class="actionDialog red" imageUrl="../../../assets/svgIcon/white_bin.svg" kendoButton (click)="Delete()">
+        XÓA
     </button>
     </kendo-dialog-actions>
 </kendo-dialog>

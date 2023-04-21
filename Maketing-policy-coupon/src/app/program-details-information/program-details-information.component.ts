@@ -1,10 +1,11 @@
-import { Component, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { GridDataResult, PageChangeEvent, PagerType } from '@progress/kendo-angular-grid';
 import { LisProductService } from '../CallingAPI/lis-product.service';
 import { DataSourceRequestState, toDataSourceRequestString } from '@progress/kendo-data-query';
 import { DrawerComponent } from '@progress/kendo-angular-layout';
 import { ProductService } from '../CallingAPI/product.service';
 import { DataTransmissionService } from '../Service/data-transmission.service';
+import { GridComponent } from '@progress/kendo-angular-grid';
 
 declare var $: any;
 @Component({
@@ -13,6 +14,7 @@ declare var $: any;
   styleUrls: ['./program-details-information.component.scss']
 })
 export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
+  @ViewChild(GridComponent) public grid!: GridComponent;
   @Input() drawerRef!: DrawerComponent;
   @Output() dataReceivedEvent = new EventEmitter<any>()
   public gridData!: GridDataResult;
@@ -33,8 +35,9 @@ export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
   }
   public ngOnInit(): void {
     this.loading = true;
-    const filterString = toDataSourceRequestString(this.fil);
+    const filterString = decodeURIComponent(toDataSourceRequestString(this.fil));
     const filter = filterString.substring(filterString.indexOf("(") + 1, filterString.lastIndexOf(")"))
+    console.log(filter)
     const body = {
       page: this.page,
       pageSize: this.take, 
@@ -92,8 +95,10 @@ export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
     }
     this.ngOnInit()
   }
-  public openDialog(): void {
-    this.actionDialog.isDialogOpen = true
-
+  public openDialog(ten: string, ma: string, item: any): void {
+    this.actionDialog.isDialogOpen = true;
+    this.actionDialog.TenSP = ten;
+    this.actionDialog.MaSP = ma;
+    this.actionDialog.Item = item
   }
 }

@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DropDownButtonModule } from '@progress/kendo-angular-buttons'; 
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { ComboBoxModule } from '@progress/kendo-angular-dropdowns';
+import { PopupModule } from "@progress/kendo-angular-popup";
 
 
 import "@progress/kendo-angular-intl/locales/de/all";
@@ -75,6 +76,7 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
     DropDownButtonModule,
     DialogsModule,
     ComboBoxModule,
+    PopupModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: "vi-VN" }],
   bootstrap: [AppComponent]

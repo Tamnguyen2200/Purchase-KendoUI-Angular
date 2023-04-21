@@ -1,11 +1,12 @@
-<kendo-datetimepicker 
+<!-- <kendo-datetimepicker 
     (open)="onOpen()" 
-    (focus)="onFocus()"
     (close)="onClose()"
     calendarType="classic" 
     (navigate)="onNavigate($event)" 
     [disabledDates]="disabledDates" 
     [value]="today" 
+    [(ngModel)]="myDate"
+    (valueChange)="valueChangeTime($event)"
     defaultTab="date">
     
 </kendo-datetimepicker>
@@ -17,14 +18,41 @@
                 <input class="checkbox" type="checkbox" name="" id="day">
                 <label for="day" class="blac">Cả ngày</label>
             </div>
-            <div>
+            <div class="disabledbtn">
                 <kendo-combobox
                     [data]="listItems"
                     placeholder="hh:mm"
+                    (selectionChange)="onSelectionChange($event)"
                 ></kendo-combobox>
-                <button (click)="onAM()">AM</button>
-                <button (click)="onPM()">PM</button>
+                <button (click)="onAM()" [ngClass]="{'clicked': isClickedAM}">AM</button>
+                <button (click)="onPM()" [ngClass]="{'clicked': isClickedPM}">PM</button>
             </div>
         </div>
     </div>
+</div> -->
+
+<div class="datetimpicker">
+    <kendo-button #anchor (click)="onOpenPopup()" icon="calendar"></kendo-button>
+    <kendo-dateinput (valueChange)="onChangeValueInput($event)" format="dd/MM/yyyy HH:mm" [value]="ValueDateTime"></kendo-dateinput>
+    <kendo-popup [anchor]="anchor.element" *ngIf="show" class="style">
+        <kendo-calendar type="classic" (navigate)="onNavigate($event)" [disabledDates]="disabledDates" [value]="today" (valueChange)="onChangeDate($event)"></kendo-calendar>
+        <div  id="TimePicker">
+            <div class="line"></div>
+            <div class="time">
+                <div class="box pee">
+                    <input class="checkbox" type="checkbox" name="" id="day" [(ngModel)]="isDisabled"> 
+                    <label for="day" class="blac">Cả ngày</label>
+                </div>
+                <div [ngClass]="{'disabledbtn': isDisabled}" class="magi">
+                    <kendo-combobox
+                        [data]="listItems"
+                        placeholder="hh:mm"
+                        (selectionChange)="onSelectionChange($event)"
+                    ></kendo-combobox>
+                    <button (click)="onAM()" [ngClass]="{'clicked': isClickedAM}">AM</button>
+                    <button (click)="onPM()" [ngClass]="{'clicked': isClickedPM}">PM</button>
+                </div>
+            </div>
+        </div>
+    </kendo-popup>
 </div>

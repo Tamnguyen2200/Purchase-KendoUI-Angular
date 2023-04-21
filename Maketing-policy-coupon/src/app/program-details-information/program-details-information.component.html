@@ -14,6 +14,7 @@
         </div>
     </div>
     <kendo-grid 
+    #grid
     [data]="gridData" 
     [pageSize]="take"
     [skip]="skip"
@@ -25,12 +26,12 @@
             <ng-template kendoGridCellTemplate let-dataItem >
                 <div class="product-container">
                     <div class="btngroup">
-                        <button class="btn-delete" (click)="openDialog()"><img src="../../assets/svgIcon/bin.svg" alt=""></button>
+                        <button class="btn-delete" (click)="openDialog(dataItem.ProductName, dataItem.Barcode, dataItem)"><img src="../../assets/svgIcon/bin.svg" alt=""></button>
                         <button class="btn-edit" (click)="edit(dataItem.Code)"><img src="../../assets/svgIcon/edit.svg" alt=""></button>
                     </div>
                     <img class="customimg" src="http://test.lapson.vn/{{ dataItem.ImageThumb }}" alt="{{ dataItem.ProductName }}">
                     <div class="dre">
-                        <p class="heif">{{ dataItem.ProductName }}</p>
+                        <p class="heif" title="{{ dataItem.ProductName }}">{{ dataItem.ProductName }}</p>
                         <p>{{ dataItem.Barcode }}</p>
                     </div>
                 </div>
@@ -50,4 +51,4 @@
         </ng-template>
     </kendo-grid>
 </div>
-<app-delete-dialog></app-delete-dialog>
+<app-delete-dialog [grid] = "grid"></app-delete-dialog>
