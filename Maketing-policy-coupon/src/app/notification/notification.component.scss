@@ -126,3 +126,14 @@
         margin: 15px;
     }
 }
+textarea{
+    width: 100%;
+    height: 150px;
+    margin: 10px 0;
+    border: none;
+    border-left: 1px solid #DBDEE7;
+    padding: 5px;
+    &:focus-visible{
+        outline: none;
+    }
+}

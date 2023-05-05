@@ -13,12 +13,13 @@ export class NotificationComponent implements AfterViewInit{
 
   public show = false;
 
-  public isdisplay1:boolean = false;
-  public isdisplay2:boolean = true;
-  public isdisplay3:boolean = true;
   public isClicked1:boolean = true;
   public isClicked2:boolean = false;
   public isClicked3:boolean = false;
+  public inputValue: string = '';
+  public inputEditorValue: string = '';
+  public inputs: string[] = [];
+  public inputsEditor: string[] = [];
 
   public onToggle(): void {
     this.show = !this.show;
@@ -27,28 +28,32 @@ export class NotificationComponent implements AfterViewInit{
   ngAfterViewInit(): void {
     $('.k-time-list-container').html('<h1>Hello World!</h1>')
   }
-  public btnSMS(){
+  public btnSMS(index: number){
     this.isClicked1 = !this.isClicked1;
     this.isClicked2 = false;
     this.isClicked3 = false;
-    this.isdisplay1 = false;
-    this.isdisplay2 = true;
-    this.isdisplay3 = true;
+    this.inputValue = this.inputs[index];
+    this.inputEditorValue = this.inputsEditor[index];
   }
-  public btnMobile(){
+  public btnMobile(index: number){
     this.isClicked2 = !this.isClicked2;
     this.isClicked1 = false;
     this.isClicked3 = false;
-    this.isdisplay1 = true;
-    this.isdisplay2 = false;
-    this.isdisplay3 = true;
+    this.inputValue = this.inputs[index];
+    this.inputEditorValue = this.inputsEditor[index];
+    
   }
-  public btnCart(){
+  public btnCart(index: number){
     this.isClicked3 = !this.isClicked3;
     this.isClicked2 = false;
     this.isClicked1 = false;
-    this.isdisplay1 = true;
-    this.isdisplay2 = true;
-    this.isdisplay3 = false;
+    this.inputValue = this.inputs[index];
+    this.inputEditorValue = this.inputsEditor[index];
+  }
+  public inputvalue(value:string){
+    this.inputs.push(value);
+  }
+  public inputEditorvalue(value:string){
+    this.inputsEditor.push(value);
   }
 }

@@ -4,11 +4,11 @@
             <p>CẤU HÌNH GỞI THÔNG BÁO</p>
         </div>
         <div class="optionlag">
-            <button (click)="btnSMS()" [ngClass]="{'clicked1': isClicked1}">SMS</button>
+            <button (click)="btnSMS(0)" [ngClass]="{'clicked1': isClicked1}">SMS</button>
             <div class="line"></div>
-            <button (click)="btnMobile()" [ngClass]="{'clicked2': isClicked2}">Mobile App</button>
+            <button (click)="btnMobile(1)" [ngClass]="{'clicked2': isClicked2}">Mobile App</button>
             <div class="line"></div>
-            <button (click)="btnCart()" [ngClass]="{'clicked3': isClicked3}">Giỏ hàng</button>
+            <button (click)="btnCart(2)" [ngClass]="{'clicked3': isClicked3}">Giỏ hàng</button>
         </div>
     </div>
     <div class="wrapper">
@@ -16,15 +16,11 @@
             <input type="checkbox" name="" id="">
             <span>Gởi thông báo trên app mobile với tiêu đề</span>
         </div>
-        <input type="text" class="form" [hidden]="isdisplay1">
-        <input type="text" class="form" [hidden]="isdisplay2">
-        <input type="text" class="form" [hidden]="isdisplay3">
+        <input type="text" class="form" [(ngModel)]="inputValue" (blur)="inputvalue(inputValue)">
         <div class="check">
             <span>Nội dung thông báo</span>
         </div>
-        <kendo-editor [hidden]="isdisplay1"></kendo-editor>
-        <kendo-editor [hidden]="isdisplay2"></kendo-editor>
-        <kendo-editor [hidden]="isdisplay3"></kendo-editor>
+        <textarea type="text" id="condition" [(ngModel)]="inputEditorValue" (blur)="inputEditorvalue(inputEditorValue)"></textarea>
         <div class="check">
             <span>Thời điểm gởi thông báo trên App mobile</span>
         </div>

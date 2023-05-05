@@ -20,7 +20,6 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { ComboBoxModule } from '@progress/kendo-angular-dropdowns';
 import { PopupModule } from "@progress/kendo-angular-popup";
 
-
 import "@progress/kendo-angular-intl/locales/de/all";
 import "@progress/kendo-angular-intl/locales/vi/all";
 
@@ -32,10 +31,10 @@ import { ConditionsApplyComponent } from './conditions-apply/conditions-apply.co
 import { NotificationComponent } from './notification/notification.component';
 import { PROGRAMDETAILSINFORMATIONComponent } from './program-details-information/program-details-information.component';
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
-import { AddNewProductComponent } from './add-new-product/add-new-product.component';
 import { DeleteDialogComponent } from './dialog/delete-dialog/delete-dialog.component';
 import { UpdateDialogComponent } from './dialog/update-dialog/update-dialog.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
+import { AddNewDialogComponent } from './dialog/add-new-dialog/add-new-dialog.component';
 
 
 
@@ -51,10 +50,10 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
     NotificationComponent,
     PROGRAMDETAILSINFORMATIONComponent,
     DateTimePickerComponent,
-    AddNewProductComponent,
     DeleteDialogComponent,
     UpdateDialogComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    AddNewDialogComponent
   ],
   imports: [
     BrowserModule,

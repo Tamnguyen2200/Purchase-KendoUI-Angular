@@ -10,7 +10,7 @@
         <div class="list_btn">
             <kendo-button class="whithbtn boxshardown1" icon="export"></kendo-button>
             <kendo-button class="whithbtn boxshardown1" icon="import">Template</kendo-button>
-            <kendo-button class="custombtn boxshardown" imageUrl="../../assets/svgIcon/plus.svg" themeColor="info" (click)="toggle()">THÊM MỚI SẢN PHẨM</kendo-button>
+            <kendo-button class="custombtn boxshardown" imageUrl="../../assets/svgIcon/plus.svg" themeColor="info" (click)="AddNewProduct()">THÊM MỚI SẢN PHẨM</kendo-button>
         </div>
     </div>
     <kendo-grid 
@@ -21,12 +21,12 @@
     [pageable]="true"
     scrollable="none"
     (pageChange)="pageChange($event)"
-     >
+    >
         <kendo-grid-column [style]="{'background-color': '#EDEFF3'}" >
             <ng-template kendoGridCellTemplate let-dataItem >
                 <div class="product-container">
                     <div class="btngroup">
-                        <button class="btn-delete" (click)="openDialog(dataItem.ProductName, dataItem.Barcode, dataItem)"><img src="../../assets/svgIcon/bin.svg" alt=""></button>
+                        <button class="btn-delete" (click)="openDialog(dataItem)"><img src="../../assets/svgIcon/bin.svg" alt=""></button>
                         <button class="btn-edit" (click)="edit(dataItem.Code)"><img src="../../assets/svgIcon/edit.svg" alt=""></button>
                     </div>
                     <img class="customimg" src="http://test.lapson.vn/{{ dataItem.ImageThumb }}" alt="{{ dataItem.ProductName }}">
@@ -51,4 +51,4 @@
         </ng-template>
     </kendo-grid>
 </div>
-<app-delete-dialog [grid] = "grid"></app-delete-dialog>
+<app-delete-dialog></app-delete-dialog>

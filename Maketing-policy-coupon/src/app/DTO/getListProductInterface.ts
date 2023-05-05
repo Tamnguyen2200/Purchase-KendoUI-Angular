@@ -46,6 +46,7 @@ export class body {
 }
 export class code{
     code: number =0;
+    Barcode: string = '';
 }
 export class getProduct {
     StatusCode: number = 0;
@@ -53,4 +54,27 @@ export class getProduct {
     ObjectReturn?: {
         Data: listdata,
     }
+}
+
+export class DeleteRes{
+    code: number = 0;
+}
+export class DeleteResponese{
+    StatusCode: number = 0;
+    ErrorString: string = '' ;
+    ObjectReturn: number = 0;
+}
+export class UpdateRes{
+    DTO?: {
+        Code: number;
+        Barcode: string,
+        Price: number,
+        PriceBase: number,
+    };
+    Properties?: string[]
+}
+export class UpdateResponese{
+    StatusCode: number = 0;
+    ErrorString: string = '' ;
+    ObjectReturn: number = 0;
 }

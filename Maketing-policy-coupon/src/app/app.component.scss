@@ -1,4 +1,4 @@
-// @import url(https://fonts.googleapis.com/css?family=Mulish);
+@import url(https://fonts.googleapis.com/css?family=Mulish);
 
 
 .right-drawer-container{
@@ -30,6 +30,27 @@
                 border: 2px solid#DBDEE7;
                 margin-top: 3px;
             }
+            .formCheckbox{
+                width: 350px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                align-content: center;
+                .checkbox{
+                    width: 130px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    input{
+                    width: 15px;
+                    height: 15px;
+                }
+                }
+            }
         }
         .boxing{
             width: 260px;
@@ -46,10 +67,10 @@
             .but{
                 margin-right: 8px;
                 box-shadow: 0px 3px 6px #008000;
-    
                 font-weight: 700;
                 width: 94px;
                 height: 35px;
+                border: none;   
             }
             .Closebtn{
                 background-color: #ffffff;
@@ -116,7 +137,7 @@
     }
     .k-drawer-wrapper{
         width: 417px;
-        height: 600px;
+        height: 700px;
     }
     .k-drawer-item.k-selected:hover, .k-drawer-item.k-selected.k-hover{
         background-color: #1A2334;

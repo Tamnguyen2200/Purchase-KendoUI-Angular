@@ -5,11 +5,11 @@
             <p class="gree">Coupon giảm giá dơn hàng</p>
         </div>
         <div class="optionlag">
-            <button (click)="onclick1()" [ngClass]="{'clicked1': isClicked1}">Tiếng Việt </button>
+            <button (click)="onclick1(0)" [ngClass]="{'clicked1': isClicked1}">Tiếng Việt </button>
             <div class="line"></div>
-            <button (click)="onclick2()" [ngClass]="{'clicked2': isClicked2}">日本語</button>
+            <button (click)="onclick2(1)" [ngClass]="{'clicked2': isClicked2}">日本語</button>
             <div class="line"></div>
-            <button (click)="onclick3()" [ngClass]="{'clicked3': isClicked3}">English</button>
+            <button (click)="onclick3(2)" [ngClass]="{'clicked3': isClicked3}">English</button>
         </div>
     </div>
     <div class="wrapper">
@@ -27,17 +27,9 @@
                 </div>
             </kendo-gridlayout-item>
             <kendo-gridlayout-item [col]="3" [row]="1">
-                <div class="box" [hidden]="showVN">
+                <div class="box">
                     <label for="nameCoupon">Tên coupon</label>
-                    <input type="text" id="nameCoupon" class="form1 with3">
-                </div>
-                <div class="box" [hidden]="showJS">
-                    <label for="nameCoupon">Tên coupon</label>
-                    <input type="text" id="nameCoupon" class="form1 with3">
-                </div>
-                <div class="box" [hidden]="showEL">
-                    <label for="nameCoupon">Tên coupon</label>
-                    <input type="text" id="nameCoupon" class="form1 with3">
+                    <input type="text" id="nameCoupon" class="form1 with3" [(ngModel)]="inputValue" (blur)="inputvalue(inputValue)">
                 </div>
             </kendo-gridlayout-item>
             <kendo-gridlayout-item [col]="1" [row]="2" [colSpan]="2">
@@ -50,17 +42,9 @@
                 </div>
             </kendo-gridlayout-item>
             <kendo-gridlayout-item [col]="3" [row]="2">
-                <div class="box" [hidden]="showVN">
+                <div class="box">
                     <label for="condition">Mô tả điều kiện áp dụng</label>
-                    <input type="text" id="condition" class="form1 with3">
-                </div>
-                <div class="box" [hidden]="showJS">
-                    <label for="condition">Mô tả điều kiện áp dụng</label>
-                    <input type="text" id="condition" class="form1 with3">
-                </div>
-                <div class="box" [hidden]="showEL">
-                    <label for="condition">Mô tả điều kiện áp dụng</label>
-                    <input type="text" id="condition" class="form1 with3">
+                    <input type="text" id="condition" class="form1 with3" [(ngModel)]="inputconditionValue" (blur)="inputConditionValue(inputconditionValue)">
                 </div>
             </kendo-gridlayout-item>
             <kendo-gridlayout-item [col]="1" [row]="3" [colSpan]="2">
@@ -76,17 +60,9 @@
                 </div>
             </kendo-gridlayout-item>
             <kendo-gridlayout-item [col]="3" [row]="3" [colSpan]="3">
-                <div class="box" [hidden]="showVN">
+                <div class="box">
                     <label for="condition">Diễn giải </label>
-                    <textarea type="text" id="condition" class="form1 with3 csstextarea"></textarea>
-                </div>
-                <div class="box" [hidden]="showJS">
-                    <label for="condition">Diễn giải </label>
-                    <textarea type="text" id="condition" class="form1 with3 csstextarea"></textarea>
-                </div>
-                <div class="box" [hidden]="showEL">
-                    <label for="condition">Diễn giải </label>
-                    <textarea type="text" id="condition" class="form1 with3 csstextarea"></textarea>
+                    <textarea type="text" id="condition" class="form1 with3 csstextarea" [(ngModel)]="inputDercriptionValue" (blur)="inputdercriptionValue(inputDercriptionValue)"></textarea>
                 </div>
             </kendo-gridlayout-item>
             <kendo-gridlayout-item [col]="1" [row]="4" [colSpan]="2">

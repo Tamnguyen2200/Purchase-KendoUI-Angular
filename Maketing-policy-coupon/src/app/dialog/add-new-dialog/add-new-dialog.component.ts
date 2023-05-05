@@ -3,32 +3,31 @@ import { DrawerComponent } from '@progress/kendo-angular-layout';
 import { DataTransmissionService } from 'src/app/Service/data-transmission.service';
 import { UpdateProductService } from 'src/app/CallingAPI/update-product.service';
 
-
 @Component({
-  selector: 'app-update-dialog',
-  templateUrl: './update-dialog.component.html',
-  styleUrls: ['./update-dialog.component.scss']
+  selector: 'app-add-new-dialog',
+  templateUrl: './add-new-dialog.component.html',
+  styleUrls: ['./add-new-dialog.component.scss']
 })
-export class UpdateDialogComponent {
+export class AddNewDialogComponent {
   @Input() drawerRef!: DrawerComponent;
   constructor(
     public actionDialog: DataTransmissionService,
     public UpdateProductService: UpdateProductService,
   ){}
-
-  public data: any
-
   public close(): void {
-    this.actionDialog.isUpdateDialogOpen = false;
+    this.actionDialog.isAddNewDialogOpen = false;
     this.drawerRef.toggle()
   }
-  public Update(): void{
+  public open(): void {
+    this.actionDialog.isAddNewDialogOpen = true;
+  }
+  public AddNew(): void{
     const updateRes = {
       DTO: {
-        Code: this.actionDialog.product.Code,
-        Barcode: this.actionDialog.product.Barcode,
-        Price: this.actionDialog.price,
-        PriceBase: this.actionDialog.pricebase,
+        Code: 0,
+        Barcode: this.actionDialog.addnewsp.Barcode,
+        Price: this.actionDialog.addnewsp.Price,
+        PriceBase: this.actionDialog.addnewsp.PriceBase,
       },
       Properties:[
         'Price', 
@@ -38,12 +37,8 @@ export class UpdateDialogComponent {
     this.UpdateProductService.getUpdateProduct(updateRes).subscribe((result) => {
       console.log(result);
     });
-    this.actionDialog.isUpdateDialogOpen = false;
+    this.actionDialog.isAddNewDialogOpen = false;
     this.drawerRef.toggle()
   }
-  public open(): void {
-    this.actionDialog.isUpdateDialogOpen = true;
-  }
-  ngOnInit() {
-  }
+ 
 }

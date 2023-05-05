@@ -1,22 +1,21 @@
 <kendo-dialog
-    *ngIf="actionDialog.isUpdateDialogOpen"
-    (close)="close()"
+    *ngIf="actionDialog.isAddNewDialogOpen"
     [minWidth]="250"
     [width]="450"
     >
     <kendo-dialog-titlebar>
         <div class="title-dialog">
-          <p class="red">Cập Nhật Sản Phẩm</p>
+          <p class="red">Thêm Mới Sản Phẩm</p>
         </div>
     </kendo-dialog-titlebar>
     <div>
         <p style="margin: 30px; text-align: center;">
-            Bạn có chắt rằng muốn cập nhật sản phẩm
+            Bạn có chắt rằng muốn thêm mới sản phẩm
         </p>
     </div>
     <kendo-dialog-actions>
     <button kendoButton class="actionDialog" (click)="close()">No</button>
-    <button kendoButton class="actionDialog gree" (click)="Update()" >
+    <button kendoButton class="actionDialog gree" (click)="AddNew()" >
         Yes
     </button>
     </kendo-dialog-actions>

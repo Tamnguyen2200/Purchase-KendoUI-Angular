@@ -16,28 +16,26 @@ declare var $: any;
 export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
   @ViewChild(GridComponent) public grid!: GridComponent;
   @Input() drawerRef!: DrawerComponent;
-  @Output() dataReceivedEvent = new EventEmitter<any>()
+  // @Output() dataReceivedEvent = new EventEmitter<any>()
   public gridData!: GridDataResult;
   public sizes = [15, 30, 50];
   public page: number = 0;
   public type: PagerType = 'numeric';
   public buttonCount = 3;
   public skip = 0;
-  public take = 30;
+  public take = 15;
   loading: boolean = false;
   public filterName = '';
 
   constructor(
     public ListService: LisProductService,
     public ProductService:ProductService,
-    public actionDialog: DataTransmissionService
+    public DataTransmission: DataTransmissionService
     ) {
   }
   public ngOnInit(): void {
-    this.loading = true;
     const filterString = decodeURIComponent(toDataSourceRequestString(this.fil));
     const filter = filterString.substring(filterString.indexOf("(") + 1, filterString.lastIndexOf(")"))
-    console.log(filter)
     const body = {
       page: this.page,
       pageSize: this.take, 
@@ -49,18 +47,22 @@ export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
         data : value.ObjectReturn?.Data!,
         total: value.ObjectReturn?.Total!
       }
-      this.loading = false;
+      this.DataTransmission.girdData = this.gridData
     })
   }
-  toggle(){
+  AddNewProduct(){
+    this.DataTransmission.ischangetitile = false;
     this.drawerRef.toggle();
   }
   edit(coder: number){
     const parma ={
-      code: coder
+      code: coder,
+      Barcode: ''
     }
-    this.ProductService.getlistProduct(parma).subscribe((value) =>{
-      this.dataReceivedEvent.emit(value.ObjectReturn)
+    this.ProductService.getProduct(parma).subscribe((value) =>{
+      // this.dataReceivedEvent.emit(value.ObjectReturn)
+      this.DataTransmission.product = value.ObjectReturn
+      this.DataTransmission.ischangetitile = true;
       this.drawerRef.toggle();
     })
   }
@@ -69,6 +71,7 @@ export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
     this.take = event.take;
     this.page = this.skip / this.take + 1
     this.ngOnInit()
+    
   }
   ngAfterViewInit(): void {
     $('thead.k-table-thead').css({
@@ -95,10 +98,9 @@ export class PROGRAMDETAILSINFORMATIONComponent implements AfterViewInit {
     }
     this.ngOnInit()
   }
-  public openDialog(ten: string, ma: string, item: any): void {
-    this.actionDialog.isDialogOpen = true;
-    this.actionDialog.TenSP = ten;
-    this.actionDialog.MaSP = ma;
-    this.actionDialog.Item = item
+  public openDialog(Product: any): void {
+    this.DataTransmission.isDeletetDialogOpen = true;
+    this.DataTransmission.sp = Product
+    this.gridData = this.DataTransmission.girdData
   }
 }

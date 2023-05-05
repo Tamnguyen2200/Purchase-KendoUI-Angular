@@ -86,7 +86,6 @@
         align-content: center;
         align-items: center;
         flex-wrap: wrap;
-        justify-content: center;
         background-color: #EDEFF3;
     }
     .k-grid-header, .k-grid-header-wrap, .k-grouping-header, .k-grid .k-table-th, .k-grid td, .k-grid .k-table-td, .k-grid-footer, .k-grid-footer-wrap, .k-grid-content-locked, .k-grid-footer-locked, .k-grid-header-locked, .k-filter-row > .k-table-th, .k-filter-row > td, .k-filter-row > .k-table-td{
@@ -94,7 +93,7 @@
         font-size: 15px;
     }
     .product-container{
-        width: 215px;
+        width: 220px;
         height: 105px;
         position: relative;
         display: flex;

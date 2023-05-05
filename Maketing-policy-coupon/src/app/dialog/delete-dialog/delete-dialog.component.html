@@ -1,5 +1,5 @@
 <kendo-dialog
-    *ngIf="actionDialog.isDialogOpen"
+    *ngIf="actionDialog.isDeletetDialogOpen"
     (close)="close()"
     [minWidth]="250"
     [width]="450"
@@ -15,7 +15,7 @@
             Bạn có chắc chắn muốn xóa sản phẩm
         </p>
         <p class="styletext">
-            {{actionDialog.MaSP}} : {{actionDialog.TenSP}}
+            {{actionDialog.sp.Barcode}} : {{actionDialog.sp.ProductName}}
         </p>
         <p style="margin: 30px; text-align: center;">Sản phẩm bị xóa sẽ <span class="redtext">KHÔNG</span> thể khôi phục lại.</p>
     </div>

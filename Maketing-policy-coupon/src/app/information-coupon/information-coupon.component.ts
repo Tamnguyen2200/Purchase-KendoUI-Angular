@@ -12,12 +12,15 @@ export class InformationCouponComponent {
   public currentDay = new Date().getDate();
   public currentYear = new Date().getFullYear();
   public today: Date = new Date();
-  public showVN:boolean = false;
-  public showJS:boolean = true;
-  public showEL:boolean = true;
   public isClicked1:boolean = true;
   public isClicked2:boolean = false;
   public isClicked3:boolean = false;
+  public inputValue: string = '';
+  public inputconditionValue: string = '';
+  public inputDercriptionValue: string = '';
+  public inputsNameCoupon: string[] = [];
+  public inputsconditionCoupon: string[] = [];
+  public inputsDercriptionCoupon: string[] = [];
 
   public onNavigate(event: any): void {
     this.currentMonth = event.focusedDate.getMonth();
@@ -30,29 +33,38 @@ export class InformationCouponComponent {
       date.getMonth() === this.today.getMonth() &&
       date.getFullYear() === this.today.getFullYear();
   }
-  onclick1(){
+  onclick1(index: number){
     this.isClicked1 = !this.isClicked1;
     this.isClicked2 = false;
     this.isClicked3 = false;
-    this.showVN = false;
-    this.showJS = true;
-    this.showEL = true;
+    this.inputValue = this.inputsNameCoupon[index];
+    this.inputconditionValue = this.inputsconditionCoupon[index];
+    this.inputDercriptionValue = this.inputsDercriptionCoupon[index];
   }
-  onclick2(){
+  onclick2( index: number){
     this.isClicked2 = !this.isClicked2;
     this.isClicked1 = false;
     this.isClicked3 = false;
-    this.showVN = true;
-    this.showJS = false;
-    this.showEL = true;
+    this.inputValue = this.inputsNameCoupon[index];
+    this.inputconditionValue = this.inputsconditionCoupon[index];
+    this.inputDercriptionValue = this.inputsDercriptionCoupon[index];
   }
-  onclick3(){
+  onclick3(index: number){
     this.isClicked3 = !this.isClicked3;
     this.isClicked1 = false;
     this.isClicked2 = false;
-    this.showVN = true;
-    this.showJS = true;
-    this.showEL = false;
+    this.inputValue = this.inputsNameCoupon[index];
+    this.inputconditionValue = this.inputsconditionCoupon[index];
+    this.inputDercriptionValue = this.inputsDercriptionCoupon[index];
+  }
+  public inputvalue(value: string){
+    this.inputsNameCoupon.push(value);
+  }
+  public inputConditionValue(value: string){
+    this.inputsconditionCoupon.push(value);
+  }
+  public inputdercriptionValue(value: string){
+    this.inputsDercriptionCoupon.push(value);
   }
 }
 

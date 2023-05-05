@@ -2,49 +2,51 @@
   <kendo-drawer 
   #rightDrawer 
   [mode]="expandMode" 
-  [expanded]="expanded" 
+  [(expanded)]="expanded" 
+  (expandedChange)="onExpandChange($event)"
   position="end" 
   [autoCollapse]="false"
   class="rightDrawer"
   [width]= 417>
     <ng-template kendoDrawerTemplate>
-      <div *ngIf="product" class="draew"> 
-        <h2 class="gree">THÊM MỚI SẢN PHẨM</h2>
+      <div class="draew"> 
+        <h2 class="gree">{{titleDrawer}}</h2> 
         <div class="line"></div>
         <div class="form">
           <label for="idProduct">Nhập mã sản phẩm</label>
-          <input type="text" id="idProduct" value='{{ product.Barcode }}'>
+          <input type="text" id="idProduct" (blur)="InputProduct(valueBarcode)" [(ngModel)]="valueBarcode" [disabled]="isDisabled">
         </div>
         <div class="form">
           <label for="NameProduct">Tên sản phẩm</label>
-          <input type="text" id="NameProduct" value='{{ product.ProductName }}'>
-        </div>
-        <div class="boxing">
-          <img src="http://test.lapson.vn/{{ product.ImageThumb }}">
-        </div>
-        <div class="btn">
-          <button kendoButton class="Closebtn but" (click)="rightDrawer.toggle()">ĐÓNG</button>
-          <button kendoButton class="Updatebtn but" (click)="Update()">CẬP NHẬT</button>
-        </div>
-      </div>
-      <div *ngIf="!product"> 
-        <h2 class="gree">THÊM MỚI SẢN PHẨM</h2>
-        <div class="line"></div>
-        <div class="form">
-          <label for="idProduct">Nhập mã sản phẩm</label>
-          <input type="text" id="idProduct" value=''>
+          <p>{{ valueNameProduct }}</p>
         </div>
         <div class="form">
-          <label for="NameProduct">Tên sản phẩm</label>
-          <input type="text" id="NameProduct" value=''>
+          <label for="idProduct">Giá gốc</label>
+          <input type="text" id="idProduct" [(ngModel)]="valuePriceBase" (blur)="InputPriceBaseProduct(valuePriceBase)">
+        </div>
+        <div class="form">
+          <label for="idProduct">Giá khuyến mãi</label>
+          <input type="text" id="idProduct" [(ngModel)]="valuePrice" (blur)="InputPriceProduct(valuePrice)">
+        </div>
+        <div class="form">
+          <div class="formCheckbox">
+            <div class="checkbox">
+              <label for="BestPrice">Là BestPrice</label>
+              <input type="checkbox" name="" id="BestPrice">
+            </div>
+            <div class="checkbox">
+              <label for="Promotion">Có Khuyến Mãi</label>
+              <input type="checkbox" name="" id="Promotion">
+            </div>
+          </div>
         </div>
         <div class="boxing">
-          <input type="file" accept="image/*">
-          <!-- <img src=""> -->
+          <img src="http://test.lapson.vn/{{valueImage}}">
         </div>
         <div class="btn">
-          <button kendoButton class="Closebtn but" (click)="rightDrawer.toggle()">ĐÓNG</button>
-          <button kendoButton class="Updatebtn but" (click)="Update()">CẬP NHẬT</button>
+          <button kendoButton class="Closebtn but" (click)="close()">ĐÓNG</button>
+          <button kendoButton class="Updatebtn but" *ngIf="condition" (click)="addNew()">THÊM MỚI</button>
+          <button kendoButton class="Updatebtn but" *ngIf="!condition" (click)="Update()">CẬP NHẬT</button>
         </div>
       </div>
     </ng-template>
@@ -80,10 +82,11 @@
           <app-information-coupon></app-information-coupon>
           <app-conditions-apply></app-conditions-apply>
           <app-notification></app-notification> 
-          <app-program-details-information [drawerRef]="rightDrawer" (dataReceivedEvent)="onDataReceived($event)"></app-program-details-information>
+          <app-program-details-information [drawerRef]="rightDrawer"></app-program-details-information>
         </div>
       </kendo-drawer-content>
     </kendo-drawer-container>
   </kendo-drawer-content>
 </kendo-drawer-container>
-<!-- <app-update-dialog></app-update-dialog> -->
+<app-update-dialog [drawerRef]="rightDrawer"></app-update-dialog>
+<app-add-new-dialog [drawerRef]="rightDrawer"></app-add-new-dialog>
